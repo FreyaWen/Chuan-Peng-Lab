@@ -11,8 +11,8 @@ type: ''
 subtitle: ''
 image: ''
 ---
+# MatrixA_Function
 
-这里的图是通过代码跑出来的，不是贴图    
 
 ```{r,echo=TRUE,warning=FALSE,results='hide',message=FALSE}
 ###############################library packages#############################

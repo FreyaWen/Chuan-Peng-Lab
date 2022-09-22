@@ -17,15 +17,6 @@
     </item>
     
     <item>
-      <title>Network Plot</title>
-      <link>https://chuan-peng-lab.netlify.app/post/2022-08-31-network-plot/</link>
-      <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://chuan-peng-lab.netlify.app/post/2022-08-31-network-plot/</guid>
-      <description>这里的图是贴图 毕竟跑一次bootstrap就得5分钟 library(&amp;quot;qgraph&amp;quot;) library(&amp;#39;ggplot2&amp;#39;) library(&amp;quot;bootnet&amp;quot;) library(&amp;quot;dplyr&amp;quot;) setwd(&amp;quot;C:/Users/hmz19/Desktop/Mental Health/Network Plot/R_code&amp;quot;) #import data net_prac&amp;lt;- bruceR::import(&amp;quot;C:\\Users\\hmz19\\Desktop\\Mental Health\\Network Plot\\R_code\\dat_cfa_p.csv&amp;quot;) %&amp;gt;% dplyr::select(.,TAS:HL) %&amp;gt;% dplyr::mutate(I=(I1+I2+I3+I4)/4,V=(V1+V2+V3)/3,Kp=Keep,Rl=Release,H_L=HL) %&amp;gt;% dplyr::select(.,I,V,Erp,Frp,HSrp,Rrp,Srp,Eeb,Feb,HSeb,Reb,Seb,Kp,Rl,H_L) %&amp;gt;% round(.,3) %&amp;gt;% #decimal=3 na.omit(.) #delete missing data GGM &amp;lt;- estimateNetwork(net_prac, default=&amp;quot;EBICglasso&amp;quot;) #get named correlation matrix (EBICglasso) get_matrix &amp;lt;- function(raw_matrix){ named_matrix &amp;lt;- matrix(raw_matrix,nrow=15,ncol=15) rownames(named_matrix) &amp;lt;-</description>
-    </item>
-    
-    <item>
       <title></title>
       <link>https://chuan-peng-lab.netlify.app/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

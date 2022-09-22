@@ -3,7 +3,7 @@
     "path": "C:/Users/hmz19/Desktop/Mental Health/blog/cleanwhite/config.yaml",
     "project_path": "config.yaml",
     "type": "yaml",
-    "hash": "73542486",
+    "hash": "148365677",
     "contents": "",
     "dirty": false,
     "created": 1663754185029.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "13,13",
-        "scrollLine": "0"
+        "cursorPosition": "70,13",
+        "scrollLine": "60"
     },
     "folds": "",
-    "lastKnownWriteTime": 1663831457,
+    "lastKnownWriteTime": 1663840463,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1663831457245,
+    "last_content_update": 1663840463573,
     "read_only": false,
     "read_only_alternatives": []
 }

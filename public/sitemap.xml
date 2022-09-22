@@ -2,39 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:4321/</loc>
+    <loc>https://chuan-peng-lab.netlify.app/</loc>
     <lastmod>2022-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/tags/code/</loc>
+    <loc>https://chuan-peng-lab.netlify.app/tags/code/</loc>
     <lastmod>2022-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/post/2022-09-14-matrixa_function/</loc>
+    <loc>https://chuan-peng-lab.netlify.app/post/2022-09-14-matrixa_function/</loc>
     <lastmod>2022-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/tags/plot/</loc>
+    <loc>https://chuan-peng-lab.netlify.app/tags/plot/</loc>
     <lastmod>2022-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/post/</loc>
+    <loc>https://chuan-peng-lab.netlify.app/post/</loc>
     <lastmod>2022-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/tags/</loc>
+    <loc>https://chuan-peng-lab.netlify.app/tags/</loc>
     <lastmod>2022-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/post/2022-08-31-network-plot/</loc>
+    <loc>https://chuan-peng-lab.netlify.app/post/2022-08-31-network-plot/</loc>
     <lastmod>2022-08-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/about/</loc>
+    <loc>https://chuan-peng-lab.netlify.app/about/</loc>
   </url><url>
-    <loc>http://localhost:4321/home/</loc>
+    <loc>https://chuan-peng-lab.netlify.app/home/</loc>
   </url><url>
-    <loc>http://localhost:4321/publication/</loc>
+    <loc>https://chuan-peng-lab.netlify.app/publication/</loc>
   </url><url>
-    <loc>http://localhost:4321/search/placeholder/</loc>
+    <loc>https://chuan-peng-lab.netlify.app/search/placeholder/</loc>
   </url><url>
-    <loc>http://localhost:4321/team/</loc>
+    <loc>https://chuan-peng-lab.netlify.app/team/</loc>
   </url><url>
-    <loc>http://localhost:4321/categories/</loc>
+    <loc>https://chuan-peng-lab.netlify.app/categories/</loc>
   </url><url>
-    <loc>http://localhost:4321/search/</loc>
+    <loc>https://chuan-peng-lab.netlify.app/search/</loc>
   </url>
 </urlset>

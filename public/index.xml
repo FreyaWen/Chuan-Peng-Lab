@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chuan-Peng Lab</title>
+    <link>http://localhost:4321/</link>
+    <description>Recent content on Chuan-Peng Lab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:4321/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MatrixA_Function</title>
+      <link>http://localhost:4321/post/2022-09-14-matrixa_function/</link>
+      <pubDate>Thu, 15 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:4321/post/2022-09-14-matrixa_function/</guid>
+      <description>这里的图是通过代码跑出来的，不是贴图 ###############################library packages############################# #base #install.packages(&amp;#39;tidyverse&amp;#39;) #install.packages(&amp;#39;bruceR&amp;#39;) library(&amp;#39;tidyverse&amp;#39;) library(&amp;#39;bruceR&amp;#39;) #plot #install.packages(&amp;#39;ggplot2&amp;#39;) library(&amp;#39;ggplot2&amp;#39;) #color #install.packages(&amp;#39;viridisLite&amp;#39;) #install.packages(&amp;#39;viridis&amp;#39;) library(&amp;#39;viridisLite&amp;#39;) library(&amp;#39;viridis&amp;#39;) #if you use mac OS, you should change the path of font file #default: simsun.ttc (songti) #Figure1.pdf display Chinese #install.packages(&amp;#39;showtext&amp;#39;) #install.packages(&amp;#39;Cairo&amp;#39;) #install.packages(&amp;#39;sysfonts&amp;#39;) #install.packages(&amp;#39;showtextdb&amp;#39;) library(&amp;#39;sysfonts&amp;#39;) library(&amp;#39;showtextdb&amp;#39;) library(&amp;#39;showtext&amp;#39;) library(&amp;#39;Cairo&amp;#39;) #################################edit here################################## #set working path #open matrix rawdata = bruceR::import(&amp;quot;C:\\Users\\hmz19\\Desktop\\Mental</description>
+    </item>
+    
+    <item>
+      <title>Network Plot</title>
+      <link>http://localhost:4321/post/2022-08-31-network-plot/</link>
+      <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:4321/post/2022-08-31-network-plot/</guid>
+      <description>这里的图是贴图 毕竟跑一次bootstrap就得5分钟 library(&amp;quot;qgraph&amp;quot;) library(&amp;#39;ggplot2&amp;#39;) library(&amp;quot;bootnet&amp;quot;) library(&amp;quot;dplyr&amp;quot;) setwd(&amp;quot;C:/Users/hmz19/Desktop/Mental Health/Network Plot/R_code&amp;quot;) #import data net_prac&amp;lt;- bruceR::import(&amp;quot;C:\\Users\\hmz19\\Desktop\\Mental Health\\Network Plot\\R_code\\dat_cfa_p.csv&amp;quot;) %&amp;gt;% dplyr::select(.,TAS:HL) %&amp;gt;% dplyr::mutate(I=(I1+I2+I3+I4)/4,V=(V1+V2+V3)/3,Kp=Keep,Rl=Release,H_L=HL) %&amp;gt;% dplyr::select(.,I,V,Erp,Frp,HSrp,Rrp,Srp,Eeb,Feb,HSeb,Reb,Seb,Kp,Rl,H_L) %&amp;gt;% round(.,3) %&amp;gt;% #decimal=3 na.omit(.) #delete missing data GGM &amp;lt;- estimateNetwork(net_prac, default=&amp;quot;EBICglasso&amp;quot;) #get named correlation matrix (EBICglasso) get_matrix &amp;lt;- function(raw_matrix){ named_matrix &amp;lt;- matrix(raw_matrix,nrow=15,ncol=15) rownames(named_matrix) &amp;lt;-</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:4321/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:4321/about/</guid>
+      <description>About Use this website as a template for your academic research group This website is powered by Jekyll and uses some Bootstrap and Bootswatch. We tried to make it simple yet adaptable, so that it is easy for you to re-use it for your purpose. Getting started All pages are written in markdown for easy editing, and Jekyll uses Liquid for the data-driven pages. The publicaion list, news items, and group members are stored as .</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:4321/home/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:4321/home/</guid>
+      <description>Home We are the meta self laboratory established under the leadership of Professor Hu chuanpeng. Our goal is to spread open science in the field of psychological research in China, Our research interests cover meta measure model.
+Metascience Metascience (also known as meta-research) is the use of scientific methodology to study science itself. Metascience seeks to increase the quality of scientific research while reducing inefficiency. It is also known as &amp;ldquo;research on research&amp;rdquo; and &amp;ldquo;the science of science&amp;rdquo;, as it uses research methods to study how research is done and find where improvements can be made.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:4321/publication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:4321/publication/</guid>
+      <description>Publications Group highlights At the end of this page, you can find the full list of publications and patents. All papers are also available on arXiv. Chinese Open Science Network (COSN): Building an Open Science community in a developing country Open Science is becoming a mainstream scientific ideology in psychology and related fields. However, due to inadequate research infrastructures, limited resources, and a lack of local support amongst various other</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:4321/search/placeholder/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:4321/search/placeholder/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:4321/team/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:4321/team/</guid>
+      <description>Group Members Staff Chuan Peng Hu School of psychology, Nanjing Normal University email: hcp4715@hotmail.com Bachelor of law, Bachelor of psychology, 2009, Hubei University Master of Educational Psychology, 2012, Hubei University Doctor of social psychology, 2017, Tsinghua University
+Xin Yang Wang The ideal is to find a field of study you love and make a living from it. In my spare time, I like to climb mountains and look at the sea to chat with people and find delicious food.</description>
+    </item>
+    
+  </channel>
+</rss>

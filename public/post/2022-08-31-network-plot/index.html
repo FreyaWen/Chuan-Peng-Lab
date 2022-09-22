@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Chuan-Peng Lab">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://localhost:4321//img/bg.png">
+    <meta property="twitter:image" content="http://localhost:4321//img/bg.png" />
+    
+
+    
+    <meta name="title" content="Network Plot" />
+    <meta property="og:title" content="Network Plot" />
+    <meta property="twitter:title" content="Network Plot" />
+    
+
+    
+    <meta name="description" content="赵化冰，程序员, 开源爱好者，生活探险家 | 这里是 赵化冰 的博客，与你一起发现更大的世界。">
+    <meta property="og:description" content="赵化冰，程序员, 开源爱好者，生活探险家 | 这里是 赵化冰 的博客，与你一起发现更大的世界。" />
+    <meta property="twitter:description" content="赵化冰，程序员, 开源爱好者，生活探险家 | 这里是 赵化冰 的博客，与你一起发现更大的世界。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Network Plot | Chuan-Peng Lab</title>
+
+    <link rel="canonical" href="/post/2022-08-31-network-plot/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Chuan-Peng Lab</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/home/">home</a></li>
+                    
+                        <li><a href="/team/">team</a></li>
+                    
+                        <li><a href="/publication/">publication</a></li>
+                    
+                        <li><a href="/about/">About</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/bg.png')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/code" title="code">
+                            code
+                        </a>
+                        
+                        <a class="tag" href="/tags/plot" title="plot">
+                            plot
+                        </a>
+                        
+                    </div>
+                    <h1>Network Plot</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Chuan-Peng Lab
+                             
+                            on 
+                            Wednesday, August 31, 2022
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                
+
+
+<p>这里的图是贴图<br />
+毕竟跑一次bootstrap就得5分钟</p>
+<pre><code>library(&quot;qgraph&quot;)
+library(&#39;ggplot2&#39;)
+library(&quot;bootnet&quot;) 
+library(&quot;dplyr&quot;)
+
+
+setwd(&quot;C:/Users/hmz19/Desktop/Mental Health/Network Plot/R_code&quot;)
+#import data
+net_prac&lt;- bruceR::import(&quot;C:\\Users\\hmz19\\Desktop\\Mental Health\\Network Plot\\R_code\\dat_cfa_p.csv&quot;) %&gt;%
+  dplyr::select(.,TAS:HL) %&gt;%
+  dplyr::mutate(I=(I1+I2+I3+I4)/4,V=(V1+V2+V3)/3,Kp=Keep,Rl=Release,H_L=HL) %&gt;%
+  dplyr::select(.,I,V,Erp,Frp,HSrp,Rrp,Srp,Eeb,Feb,HSeb,Reb,Seb,Kp,Rl,H_L) %&gt;%
+  round(.,3) %&gt;%  #decimal=3
+  na.omit(.)  #delete missing data
+
+GGM &lt;- estimateNetwork(net_prac, default=&quot;EBICglasso&quot;) 
+
+#get named correlation matrix (EBICglasso)
+get_matrix &lt;- function(raw_matrix){
+  named_matrix &lt;- matrix(raw_matrix,nrow=15,ncol=15)
+  rownames(named_matrix) &lt;- c(&quot;I&quot;,&quot;V&quot;,&quot;Erp&quot;,&quot;Frp&quot;,&quot;HSrp&quot;,&quot;Rrp&quot;,&quot;Srp&quot;,&quot;Eeb&quot;,&quot;Feb&quot;,&quot;HSeb&quot;,&quot;Reb&quot;,&quot;Seb&quot;,&quot;Kp&quot;,&quot;Rl&quot;,&quot;H_L&quot;)
+  colnames(named_matrix) &lt;- c(&quot;I&quot;,&quot;V&quot;,&quot;Erp&quot;,&quot;Frp&quot;,&quot;HSrp&quot;,&quot;Rrp&quot;,&quot;Srp&quot;,&quot;Eeb&quot;,&quot;Feb&quot;,&quot;HSeb&quot;,&quot;Reb&quot;,&quot;Seb&quot;,&quot;Kp&quot;,&quot;Rl&quot;,&quot;H_L&quot;)
+return(named_matrix)
+}
+
+df &lt;- get_matrix(raw_matrix = GGM$graph)
+df
+#variables long name
+var_name &lt;- c(&quot;Impulsive&quot;,&quot;Venturesome&quot;,
+              &quot;Ethical Risk Perceptions&quot;,&quot;Financial Risk Perceptions&quot;,&quot;Health/Safety Risk Perceptions&quot;,&quot;Recreational Risk Perceptions&quot;,&quot;Social Risk Perceptions&quot;,
+              &quot;Ethical Expected Benefits &quot;,&quot;Financial Expected Benefits &quot;,&quot;Health/Safety Expected Benefits &quot;,&quot;Recreational Expected Benefits &quot;,&quot;Social Expected Benefits &quot;,
+              &quot;Keep&quot;,&quot;Release&quot;,&quot;Holt &amp; Laury&quot;)
+#create groups
+get_group &lt;- function(){
+  IV=c(1,2)
+  RP=c(3,4,5,6,7)
+  EB=c(8,9,10,11,12)
+  Y= c(13,14,15)
+
+  names(IV) &lt;- c(&quot;I&quot;,&quot;V&quot;)
+  names(RP) &lt;- c(&quot;Erp&quot;,&quot;Frp&quot;,&quot;HSrp&quot;,&quot;Rrp&quot;,&quot;Srp&quot;)
+  names(EB) &lt;- c(&quot;Eeb&quot;,&quot;Feb&quot;,&quot;HSeb&quot;,&quot;Reb&quot;,&quot;Seb&quot;)
+  names(Y) &lt;- c(&quot;Kp&quot;,&quot;Rl&quot;,&quot;H_L&quot;)
+
+  group=list(IV,RP,EB,Y)
+  names(group) &lt;- c(&quot;IV&quot;,&quot;RP&quot;,&quot;EB&quot;,&quot;Y&quot;)
+return(group)
+}
+
+risk_group=get_group()
+risk_group
+
+
+library(&#39;mgm&#39;)
+#get pie(residual error)
+get_RE &lt;- function(raw_data){
+  p &lt;- ncol(raw_data) #number of variables
+  
+  fit_obj &lt;- mgm(data = raw_data, 
+                 type = rep(&#39;g&#39;, p), #&quot;g&quot; for Gaussian, &quot;p&quot; for Poisson, &quot;c&quot; for categorical.
+                 lev = rep(1, p), #continue variable default setting
+                 rule.reg = &#39;OR&#39;)
+  pred_obj &lt;- predict(fit_obj, raw_data, 
+                      error.continuous = &#39;VarExpl&#39;) #fit_obj + data = pred_obj
+return(pred_obj$error)
+}
+
+RE &lt;- get_RE(raw_data=net_prac)
+RE
+RE$RMSE
+
+#color
+library(&#39;viridisLite&#39;)
+library(&#39;viridis&#39;)
+pal_rb&lt;- viridis(4,option = &quot;H&quot;)
+
+#network plot
+c1 &lt;- qgraph (df,layout = &quot;groups&quot;,groups=risk_group, 
+              posCol = &quot;lightgreen&quot;, negCol = &quot;pink&quot;, #positive &amp; negative line color
+              directed = FALSE,esize = 15, #esize: max edge size                
+              edge.width = 0.8, edge.labels = F,            
+              nodeNames=var_name, #variable names in legend 
+              border.color = &quot;grey&quot;,border.width = 0.5, #node border color and size
+              color = pal_rb, #group color
+              label.color = &quot;white&quot;, #label color in graph
+              pie = RE$RMSE, pieBorder = 0.25, #residual error
+              label.cex=2, legend.cex=0.3, GLratio = 1,#graph &amp; legend relative size
+              node.width=0.8,node.height=0.8) 
+
+
+#centrality
+c2 &lt;- qgraph::centralityPlot(GGM, 
+      include=c(&quot;Strength&quot;,&quot;Betweenness&quot;,&quot;Closeness&quot;,&quot;ExpectedInfluence&quot;),
+      orderBy = &quot;Strength&quot;) 
+
+#centrality stability
+c3 &lt;- bootnet(GGM, statistics = c(&quot;Strength&quot;,&quot;Betweenness&quot;,&quot;Closeness&quot;,&quot;ExpectedInfluence&quot;), 
+              nBoots = 1000, nCores = 16,type = &quot;case&quot;) 
+plot(c3,statistics = c(&quot;Strength&quot;,&quot;Betweenness&quot;,&quot;Closeness&quot;,&quot;ExpectedInfluence&quot;)) + 
+              theme()
+
+#bootstrap mean
+library(&#39;relaimpo&#39;)
+GGM_A &lt;- estimateNetwork(net_prac, default = &quot;relimp&quot;,normalize = FALSE, nCores = 16) 
+c4 &lt;- bootnet(GGM_A, nBoots = 100, nCores = 16)
+plot(c4, plot = &quot;interval&quot;, split0 = TRUE, order=&quot;sample&quot;, labels=FALSE)
+
+#bridge centrality
+library(&#39;networktools&#39;)
+c5 &lt;- bridge(c1,communities = c(&#39;1&#39;,&#39;1&#39;,&#39;2&#39;,&#39;2&#39;,&#39;2&#39;,&#39;2&#39;,&#39;2&#39;,&#39;3&#39;,&#39;3&#39;,&#39;3&#39;,&#39;3&#39;,&#39;3&#39;,&#39;4&#39;,&#39;4&#39;,&#39;4&#39;),
+  useCommunities = &quot;all&quot;,directed = NULL,
+  nodes = NULL,normalize = FALSE)
+plot(c5)
+
+#Bootstrapped dierence tests
+c6 &lt;- bootnet(GGM, nBoots = 1000, nCores = 16)
+plot(c6, &quot;edge&quot;, plot = &quot;difference&quot;, onlyNonZero = TRUE, order = &quot;sample&quot;)
+plot(c6,&quot;strength&quot;)
+
+#Network comparisons
+net_comp&lt;- bruceR::import(&quot;C:\\Users\\hmz19\\Desktop\\Mental Health\\Network Plot\\R_code\\dat_cfa_p.csv&quot;) %&gt;%
+  dplyr::select(.,gender,TAS:HL) %&gt;%
+  dplyr::mutate(I=(I1+I2+I3+I4)/4,V=(V1+V2+V3)/3,Kp=Keep,Rl=Release,H_L=HL,
+                gender =as.numeric(ifelse(gender==&#39;male&#39;,&quot;1&quot;,&quot;2&quot;))) %&gt;%
+  round(.,3) %&gt;%  #decimal=3
+  dplyr::select(.,gender,I,V,Erp,Frp,HSrp,Rrp,Srp,Eeb,Feb,HSeb,Reb,Seb,Kp,Rl,H_L) %&gt;%
+  na.omit(.)  #delete missing data
+
+#Network centrality comparisons
+net_m &lt;- dplyr::filter(net_comp,gender==1) %&gt;%
+         dplyr::select(.,-gender) %&gt;%
+         estimateNetwork(., default=&quot;EBICglasso&quot;)
+net_f &lt;- dplyr::filter(net_comp,gender==2) %&gt;%
+         dplyr::select(.,-gender) %&gt;%
+         estimateNetwork(., default=&quot;EBICglasso&quot;) 
+
+c7 &lt;- qgraph::centralityPlot(list(male=net_m,
+                                  female=net_f), 
+      include=c(&quot;Strength&quot;,&quot;Betweenness&quot;,&quot;Closeness&quot;,&quot;ExpectedInfluence&quot;),
+      orderBy = &quot;Strength&quot;) 
+
+#Network edge comparisons
+#Network plot (draw 2 graph for each group)
+library(&#39;mgm&#39;)
+mgm_obj &lt;- mgm(data = net_comp, 
+               type = c(&quot;c&quot;, 
+                        &quot;g&quot;, &quot;g&quot;, 
+                        &quot;g&quot;, &quot;g&quot;, &quot;g&quot;,&quot;g&quot;, &quot;g&quot;, 
+                        &quot;g&quot;, &quot;g&quot;, &quot;g&quot;,&quot;g&quot;, &quot;g&quot;, 
+                        &quot;g&quot;, &quot;g&quot;, &quot;g&quot;), #variable type c: categorical g: Gaussian(continual)
+               level = c(2,
+                         1,1,
+                         1,1,1,1,1,
+                         1,1,1,1,1,
+                         1,1,1), #categorical variable level, &#39;1&#39; for continual variables 
+               moderators = 1, #row of moderator(categorical variable)
+               lambdaSel = &quot;EBIC&quot;, 
+               lambdaGam = 0.25, 
+               ruleReg = &quot;AND&quot;, 
+               pbar = FALSE)
+
+
+comp_plot &lt;- function(comp_data,n_group){
+  l_mgm_cond &lt;- list()
+  for(g in 1:n_group) l_mgm_cond[[g]] &lt;- condition(object = comp_data, #for... fill categorical variable(moderator)&#39;s level
+                                           values = list(&quot;1&quot; = g)) #list()... fill the row of moderator
+
+  v_max &lt;- rep(NA, n_group)
+  for(g in 1:n_group) v_max[g] &lt;- max(l_mgm_cond[[g]]$pairwise$wadj) #the same as above
+
+  par(mfrow=c(1, n_group)) 
+  comp_graph &lt;- for(g in 1:n_group) { #categorical variable level (the value must to be same as the raw data)
+    qgraph(input = l_mgm_cond[[g]]$pairwise$wadj, 
+         edge.color = l_mgm_cond[[g]]$pairwise$edgecolor_cb,
+         lty = l_mgm_cond[[g]]$pairwise$edge_lty,
+         layout = &quot;circle&quot;, mar = c(2, 3, 5, 3),
+         maximum = max(v_max), vsize = 5, esize = 10, #vsize = node size; esize = edge size
+         edge.labels  = TRUE, edge.label.cex = 3)
+    mtext(text = paste0(&quot;Group &quot;, g), line = 2.5)
+}
+return(comp_graph)
+}
+
+comp_plot(comp_data = mgm_obj, n_group=2)
+
+#Network moderator effect
+res_obj &lt;- mgm::resample(object = mgm_obj, 
+                    data = net_comp, 
+                    nB = 50, 
+                    pbar = FALSE)
+plotRes(res_obj)</code></pre>
+<p><img src="/post/2022-08-31-network-plot_files/network_plot_with%20pie.png" /></p>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://localhost:4321/"><img src="/img/favicon.png" />Chuan-Peng Lab</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/post/2022-09-14-matrixa_function/" data-toggle="tooltip" data-placement="top" title="MatrixA_Function">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/code" title="code">
+                            code
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/plot" title="plot">
+                            plot
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="https://yukis-blog.netlify.app/">YuKi&#39;s Blog</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    <li>
+                        <a href="mailto:hcp4715@hotmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    <li>
+                        <a href="https://twitter.com/hcp4715">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/hcp4715">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Chuan-Peng Lab" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Chuan-Peng Lab 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

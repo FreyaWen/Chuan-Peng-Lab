@@ -1,0 +1,95 @@
+baseurl: http://localhost:4321/
+title: Chuan-Peng Lab
+theme: hugo-theme-cleanwhite
+languageCode: en-us
+disqusShortname: ''
+googleAnalytics: ''
+preserveTaxonomyNames: yes
+paginate: 5
+hasCJKLanguage: yes
+outputs:
+  home:
+    - HTML
+    - RSS
+    - Algolia
+params:
+  SEOTitle: Chuan-Peng Lab
+  about_me: yes
+  addtional_menus:
+    - href: /home/
+      title: home
+    - href: /team/
+      title: team
+    - href: /publication/
+      title: publication
+    - href: /about/
+      title: About
+
+  algolia:
+    params:
+      - categories
+      - tags
+    vars:
+      - title
+      - summary
+      - date
+      - publishdate
+      - expirydate
+      - permalink
+  algolia_apiKey: ''
+  algolia_appId: ''
+  algolia_indexName: ''
+  algolia_search: yes
+  ba_track_id: ''
+  bookmark_link:
+    - href: https://martinfowler.com
+      title: Martin Fowler
+    - href: http://www.servicemesher.com
+      title: ServiceMesher
+    - href: https://pxhere.com
+      title: Pxhere
+    - href: https://unsplash.com
+      title: unsplash
+  bookmarks: no
+  description: 赵化冰，程序员, 开源爱好者，生活探险家 | 这里是 赵化冰 的博客，与你一起发现更大的世界。
+  disqus_proxy: ''
+  disqus_site: ''
+  featured_condition_size: 1
+  featured_tags: yes
+  friend_link:
+    - href: https://yukis-blog.netlify.app/
+      title: YuKi's Blog
+  friends: yes
+  header_image: img/bg.png
+  image_404: img/404-bg.jpg
+  keyword:
+  leancloud_app_id: ''
+  leancloud_app_key: ''
+  omit_categories: no
+  page_view_conter: no
+  reward: yes
+  sidebar_about_description: Software Developer, Open Source Enthusiast and Life Adventurer
+  sidebar_avatar: img/hcp.png 
+  slogan: 
+  social:
+    email: hcp4715@hotmail.com
+    github: https://github.com/hcp4715
+    #linkedin: https://www.linkedin.com/
+    twitter: https://twitter.com/hcp4715
+    rss: yes
+    #stackoverflow: https://stackoverflow.com/users/yourstackoverflowid
+    #wechat: your wechat qr code image
+  title_404: 你来到了没有知识的荒原 :(
+  twikoo_env_id: ''
+outputFormats:
+  Algolia:
+    baseName: algolia
+    isPlainText: yes
+    mediaType: application/json
+    notAlternative: yes
+markup:
+  highlight:
+    style: dracula
+  tableOfContents:
+    endLevel: 2
+    startLevel: 1

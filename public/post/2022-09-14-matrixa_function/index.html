@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Chuan-Peng Lab">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://localhost:4321//img/bg.png">
+    <meta property="twitter:image" content="http://localhost:4321//img/bg.png" />
+    
+
+    
+    <meta name="title" content="MatrixA_Function" />
+    <meta property="og:title" content="MatrixA_Function" />
+    <meta property="twitter:title" content="MatrixA_Function" />
+    
+
+    
+    <meta name="description" content="赵化冰，程序员, 开源爱好者，生活探险家 | 这里是 赵化冰 的博客，与你一起发现更大的世界。">
+    <meta property="og:description" content="赵化冰，程序员, 开源爱好者，生活探险家 | 这里是 赵化冰 的博客，与你一起发现更大的世界。" />
+    <meta property="twitter:description" content="赵化冰，程序员, 开源爱好者，生活探险家 | 这里是 赵化冰 的博客，与你一起发现更大的世界。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>MatrixA_Function | Chuan-Peng Lab</title>
+
+    <link rel="canonical" href="/post/2022-09-14-matrixa_function/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Chuan-Peng Lab</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/home/">home</a></li>
+                    
+                        <li><a href="/team/">team</a></li>
+                    
+                        <li><a href="/publication/">publication</a></li>
+                    
+                        <li><a href="/about/">About</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/bg.png')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/code" title="code">
+                            code
+                        </a>
+                        
+                        <a class="tag" href="/tags/plot" title="plot">
+                            plot
+                        </a>
+                        
+                    </div>
+                    <h1>MatrixA_Function</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Chuan-Peng Lab
+                             
+                            on 
+                            Thursday, September 15, 2022
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                
+
+
+<p>这里的图是通过代码跑出来的，不是贴图</p>
+<pre class="r"><code>###############################library packages#############################
+#base
+#install.packages(&#39;tidyverse&#39;)
+#install.packages(&#39;bruceR&#39;)
+library(&#39;tidyverse&#39;)
+library(&#39;bruceR&#39;)
+
+#plot
+#install.packages(&#39;ggplot2&#39;)
+library(&#39;ggplot2&#39;)
+
+#color
+#install.packages(&#39;viridisLite&#39;)
+#install.packages(&#39;viridis&#39;)
+library(&#39;viridisLite&#39;)
+library(&#39;viridis&#39;)
+#if you use mac OS, you should change the path of font file
+#default: simsun.ttc (songti)
+
+#Figure1.pdf display Chinese
+#install.packages(&#39;showtext&#39;)
+#install.packages(&#39;Cairo&#39;)
+#install.packages(&#39;sysfonts&#39;)
+#install.packages(&#39;showtextdb&#39;)
+library(&#39;sysfonts&#39;)
+library(&#39;showtextdb&#39;)
+library(&#39;showtext&#39;)
+library(&#39;Cairo&#39;)
+
+#################################edit here##################################
+
+#set working path
+
+#open matrix
+rawdata = bruceR::import(&quot;C:\\Users\\hmz19\\Desktop\\Mental Health\\task\\task11\\data\\depression_matrix_a_0.xlsx&quot;)  #Load data for plot (difference between specific and compound symptoms)
+  #the structure of matrixA: 
+  #first row: scale_name_1, scale_name_2, scale_name_3,...,scale_name_n,S_name
+  #...
+  #each row represents a symptom
+  #each column represents a scale
+
+#setting the number of scales and symptoms 
+n_scales = 26 #number of scales
+n_symptoms = 95 #number of symptoms
+  
+##############################create function ##############################
+#######################click 2 times and get your graph#####################
+matrixA_plot &lt;- function(dataplot,n_scal,n_symp){
+  set.seed(223)
+  d &lt;- dataplot %&gt;%
+    dplyr::select(.,-S_name) %&gt;%
+    dplyr::mutate(.,S = paste(1:nrow(dataplot),sep = &quot;&quot;)) %&gt;%
+    melt(., id.vars=&quot;S&quot;, variable.name=&quot;Scales&quot;, value.name=&quot;Type&quot;) %&gt;%
+    dplyr::filter(.,Type &gt;= 1) %&gt;%
+    dplyr::mutate(.,Type = ifelse(Type==1,&quot;Scale contains compound symptom&quot;,&quot;Scale contains specific symptom&quot;)) %&gt;%
+    dplyr::mutate(.,S=as.numeric(S))
+    
+  symp &lt;- dataplot %&gt;%
+    dplyr::mutate(.,S=1:nrow(.)) %&gt;%
+    dplyr::mutate(S_name = factor(S_name,levels = .$S_name))  %&gt;%
+    dplyr::select(S,S_name)
+    
+  #levels(symp$S_name)
+    
+  num = d %&gt;%
+    dplyr::mutate(n=1) %&gt;%
+    dplyr::group_by(Scales) %&gt;%
+    dplyr::summarise(.,count = sum(n)) %&gt;%
+    dplyr::ungroup() %&gt;%
+    dplyr::arrange(.,desc(count)) %&gt;%
+    dplyr::mutate(order=1:nrow(.))
+    
+    
+  plot = dplyr::full_join(num, d, by = &quot;Scales&quot;) %&gt;%
+    dplyr::mutate(Scales2=order) %&gt;%
+    dplyr::mutate(Scales = factor(Scales,levels = num$Scales))  %&gt;%
+    dplyr::mutate(S = factor(S,levels = symp$S,labels = symp$S_name))  %&gt;%
+    dplyr::select(S,Scales,Scales2,Type)
+    
+  #levels(plot$Scales)
+    
+  # Plot
+  pal_rb&lt;- viridis(n_scal,option = &quot;H&quot;)
+  #font setting
+  showtext::showtext.auto(enable = T)
+  font_add(family = &quot;songti&quot;,regular = &quot;C:/Windows/Fonts/simsun.ttc&quot;) 
+    #add font = songti, otherwise, the Chinese cannot be displayed in pdf
+    
+    
+  a&lt;- ggplot(plot, aes(x=S, y=Scales2, group=S, color=Scales, shape=Type, rev=F)) +
+    geom_line() + #keep this here, otherwise there is an error 
+    xlab(&quot;&quot;) +
+    ylab(&quot;&quot;) +
+    # Generate the grid lines
+    geom_hline(yintercept = 1:n_scal, colour = &quot;grey80&quot;, size = .2) +
+    geom_vline(xintercept = 1:n_symp, colour = &quot;grey80&quot;, size = .2) +
+    # Points and lines
+    geom_line(colour=&quot;grey60&quot;) +
+    geom_point(size=3, fill=&quot;white&quot;) +
+    # Fill the middle space with a white blank rectangle
+    geom_rect(xmin=-Inf,xmax=Inf,ymin=-Inf,ymax=.6,fill=&quot;white&quot;, color=NA) +
+    # Polar coordinates 
+    #circle or not
+    #coord_polar() +
+    scale_shape_manual(values=c(21,19)) +
+    # The angle for the symptoms and remove the default grid lines
+    theme(axis.text.x = element_text(angle=90, hjust=1),
+          axis.text.y = element_text(angle=120, hjust=1),
+          panel.border = element_blank(),
+          axis.line = element_blank(),
+          axis.ticks = element_blank(),
+          panel.grid = element_blank(),
+          panel.background = element_blank(),
+          legend.position=&quot;right&quot;,
+          plot.margin = unit(rep(.5,4), &quot;lines&quot;),
+          text = element_text(family=&quot;songti&quot;)) +
+    labs(fill=&quot;&quot;) + # remove legend title
+    scale_y_continuous(limits=c(0,n_scal+0.5), expand=c(0,0), breaks=1:n_scal, labels=levels(plot$Scales))+
+    scale_color_manual(values=pal_rb);  
+
+    # Figure 1 was further adjusted in Inkscape
+    
+return(a)
+}
+
+matrixA_plot(dataplot = rawdata,
+             n_scal = n_scales,
+             n_symp = n_symptoms)  </code></pre>
+<p><img src="/post/2022-09-14-matrixA_function_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://localhost:4321/"><img src="/img/favicon.png" />Chuan-Peng Lab</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/2022-08-31-network-plot/" data-toggle="tooltip" data-placement="top" title="Network Plot">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+                
+
+                
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/code" title="code">
+                            code
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/plot" title="plot">
+                            plot
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="https://yukis-blog.netlify.app/">YuKi&#39;s Blog</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    <li>
+                        <a href="mailto:hcp4715@hotmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    <li>
+                        <a href="https://twitter.com/hcp4715">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/hcp4715">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Chuan-Peng Lab" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Chuan-Peng Lab 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

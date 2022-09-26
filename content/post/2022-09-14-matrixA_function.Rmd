@@ -1,6 +1,6 @@
 ---
-title: MatrixA_Function
-author: ''
+title: MatrixA Function
+author: 'yuki'
 date: '2022-09-15'
 slug: []
 categories:
@@ -10,9 +10,8 @@ tags:
 type: ''
 subtitle: ''
 image: ''
+summary: the plot of content analysis
 ---
-# MatrixA_Function
-
 
 ```{r,echo=TRUE,warning=FALSE,results='hide',message=FALSE}
 ###############################library packages#############################

@@ -52,7 +52,7 @@ params:
     - href: https://yukis-blog.netlify.app/
       title: YuKi's Blog
   friends: yes
-  header_image: img/bg.png
+  header_image: img/bg3.png
   image_404: img/404-bg.jpg
   keyword:
   leancloud_app_id: ''
@@ -62,7 +62,7 @@ params:
   reward: no
   sidebar_about_description: Metascience, Diversity, and self-bias | Nanjing Normal University | Chinese | Amateur climber | He/him | Opinions are mine.
   sidebar_avatar: img/hcp.png 
-  slogan: 
+  slogan: Self-cog & Mental health
   social: 
     email: hcp4715@hotmail.com
     github: https://github.com/hcp4715
@@ -82,3 +82,7 @@ markup:
   tableOfContents:
     endLevel: 2
     startLevel: 1
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

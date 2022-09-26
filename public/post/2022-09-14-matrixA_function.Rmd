@@ -11,9 +11,7 @@ type: ''
 subtitle: ''
 image: ''
 ---
-#MatrixA_Function
-
-**这里的图是通过代码跑出来的，不是贴图**    <br>
+# MatrixA_Function
 
 
 ```{r,echo=TRUE,warning=FALSE,results='hide',message=FALSE}

@@ -1,9 +1,11 @@
 ---
+title: 'Publications'
 layout: post
+author: ''
+date: '2022-09-26'
 ---
-# Publications
 
-## Group highlights
+# Group highlights
 
 **At the end of this page, you can find the [full list of publications and patents](#full-list-of-publications). All papers are also available on [arXiv](https://arxiv.org/search/?searchtype=author&query=Allan%2C+M+P).**
 
@@ -21,7 +23,7 @@ Sun Shuting, Wang Nan, Wen Jiahui, Hu chuanpeng
 
 [chinaXiv:202207.00005](http://www.chinaxiv.org/abs/202207.00005)
 
-## Full List of publications
+# Full List of publications
 
 Chinese Open Science Network (COSN): Building an Open Science community in a developing country
 Haiyang JinQing Wang (Vincent, 王庆)Yu-Fang YangHan ZhangMengyu GaoShuxian JinSharon ChenTing XuZheng YuanRuiJi ChenQinyu XiaoJinbiao YangXindi WangHaiyang GengJianqiao GeWeiwei WangXi ChenLei ZhangXi-Nian ZuoHu Chuan-Peng

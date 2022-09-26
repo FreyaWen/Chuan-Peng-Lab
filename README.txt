@@ -6,3 +6,4 @@ v0.0.3
 	上传了md的network analysis（featured tags识别md不识别rmd）
 	增添了post的摘要（summary）
 	让team中图片居左（丐版做法，直接修改了图片）
+	更改了图标——三个圆圈

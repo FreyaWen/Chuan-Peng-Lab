@@ -3,7 +3,7 @@ title: Chuan-Peng Lab
 theme: hugo-theme-cleanwhite
 languageCode: en-us
 disqusShortname: ''
-googleAnalytics: ''
+googleAnalytics: 'G-HF4NMVMD3W'
 preserveTaxonomyNames: yes
 paginate: 5
 hasCJKLanguage: yes
@@ -39,7 +39,7 @@ params:
   algolia_apiKey: ''
   algolia_appId: ''
   algolia_indexName: ''
-  algolia_search: no
+  algolia_search: yes
   ba_track_id: ''
   bookmark_link:
   bookmarks: no
